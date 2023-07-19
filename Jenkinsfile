@@ -85,6 +85,12 @@ pipeline {
            sh "terraform destroy --auto-approve"
         }
     }
+    stage('cleanup')
+    {
+        steps{
+            cleanWs()
+        }
+    }
 
   }
 }
