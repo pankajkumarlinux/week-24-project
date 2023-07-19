@@ -16,6 +16,11 @@ pipeline {
 
 
     stages {
+        stage('cleanup') {
+            steps {
+                 cleanWs()
+                }
+            }
         stage('checkout') {
             steps {
                  script{
@@ -84,13 +89,8 @@ pipeline {
         steps {
            sh "terraform destroy --auto-approve"
         }
-    }
-    stage('cleanup')
-    {
-        steps{
-            cleanWs()
         }
-    }
+        
 
   }
 }
